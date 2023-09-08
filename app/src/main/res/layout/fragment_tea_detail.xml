@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.home.tea.TeaDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:background="@drawable/background_tea_susu"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:layout_marginTop="60dp"
+                android:src="@drawable/tea_background" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/line"
+                            android:layout_marginBottom="20dp"
+                            />
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="24dp">
+
+
+                            <LinearLayout
+                                android:layout_margin="10dp"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16%"
+                                android:fontFamily="@font/segoeuibold"
+                                android:textSize="24sp"
+                                android:textColor="#1E2742"
+                                android:layout_gravity="center"
+
+                                />
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Prosedure"
+                                android:fontFamily="@font/segoeuibold"
+                                android:textSize="24sp"
+                                android:textColor="#1E2742"
+                                android:layout_gravity="center"
+
+                                />
+                            </LinearLayout>
+
+
+
+
+
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="24dp">
+
+
+                            <LinearLayout
+                                android:layout_margin="10dp"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="16%"
+                                    android:fontFamily="@font/segoeuibold"
+                                    android:textSize="24sp"
+                                    android:textColor="#1E2742"
+                                    android:layout_gravity="center"
+
+                                    />
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Prosedure"
+                                    android:fontFamily="@font/segoeuibold"
+                                    android:textSize="24sp"
+                                    android:textColor="#1E2742"
+                                    android:layout_gravity="center"
+
+                                    />
+                            </LinearLayout>
+
+
+
+
+
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"
+                            app:cardCornerRadius="24dp">
+
+
+                            <LinearLayout
+                                android:layout_margin="10dp"
+                                android:layout_gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="16%"
+                                    android:fontFamily="@font/segoeuibold"
+                                    android:textSize="24sp"
+                                    android:textColor="#1E2742"
+                                    android:layout_gravity="center"
+
+                                    />
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Prosedure"
+                                    android:fontFamily="@font/segoeuibold"
+                                    android:textSize="24sp"
+                                    android:textColor="#1E2742"
+                                    android:layout_gravity="center"
+
+                                    />
+                            </LinearLayout>
+
+
+
+
+
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <com.google.android.material.tabs.TabLayout
+
+                            android:id="@+id/tabLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="#00000000"
+                            app:tabGravity="fill"
+                            app:tabIndicatorColor="#7E7A7A"
+                            app:tabMode="fixed"/>
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:layout_marginBottom="40dp"
+                            android:id="@+id/viewPager"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+
+
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

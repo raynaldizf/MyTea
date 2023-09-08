@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:background="#A2AA7B"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.home.consultation.DetailExpertFragment">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_margin="25dp"
+                android:id="@+id/div1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back"
+
+                    />
+
+
+                <ImageView
+                    android:layout_below="@id/btnBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/fotoorang"
+                    android:scaleType="centerCrop"
+
+                    />
+
+
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:elevation="10dp"
+                app:cardCornerRadius="35dp"
+
+                android:layout_gravity="bottom"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:padding="25dp"
+                    android:layout_marginBottom="50dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tvNama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prof. Dr. Puri,M.S., M.Sc."
+                        android:fontFamily="@font/segoeuibold"
+                        android:textSize="20sp"
+                        android:textColor="#262626"
+
+                        />
+
+                    <TextView
+                        android:layout_below="@id/tvNama"
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/tvEducation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Education"
+                        android:fontFamily="@font/segoeuibold"
+                        android:textSize="20sp"
+                        android:textColor="#262626"
+
+                        />
+
+
+                    <TextView
+                        android:layout_below="@id/tvEducation"
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/eduDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lulusan Universitas Gadjah Mada Jurusan Bioteknologi"
+                        android:fontFamily="@font/segoeui"
+                        android:textSize="15sp"
+                        android:textColor="#262626"
+
+                        />
+
+                    <TextView
+                        android:layout_below="@id/eduDescription"
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/tvExperience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Experience"
+                        android:fontFamily="@font/segoeuibold"
+                        android:textSize="20sp"
+                        android:textColor="#262626"
+
+                        />
+
+
+                    <TextView
+                        android:layout_below="@id/tvExperience"
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/tvExperienceDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bekerjasama dengan berbagai Prof di Universitas Indonesia untuk mengmbangkan ..."
+                        android:fontFamily="@font/segoeui"
+                        android:textSize="15sp"
+                        android:textColor="#262626"
+
+                        />
+
+
+
+
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/btn_background"
+                    android:layout_gravity="end|bottom"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start Chat"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/segoeuibold"
+                        />
+                </RelativeLayout>
+
+
+
+
+
+
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.app.mytea.view.authentication.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.app.mytea.view.authentication.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.app.mytea.view.splashscreen.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.app.mytea.view.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.app.mytea.view.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.app.mytea.view.saved.SavedFragment"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" />
+    <fragment
+        android:id="@+id/shopFragment"
+        android:name="com.app.mytea.view.home.shop.ShopFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/fragment_shop" />
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="com.app.mytea.view.basket.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.app.mytea.view.home.consultation.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" >
+        <action
+            android:id="@+id/action_messageFragment_to_detailExpertFragment"
+            app:destination="@id/detailExpertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teaFragment"
+        android:name="com.app.mytea.view.home.tea.TeaFragment"
+        android:label="fragment_tea"
+        tools:layout="@layout/fragment_tea" />
+    <fragment
+        android:id="@+id/teaDetailFragment"
+        android:name="com.app.mytea.view.home.tea.TeaDetailFragment"
+        android:label="fragment_tea_detail"
+        tools:layout="@layout/fragment_tea_detail" />
+    <fragment
+        android:id="@+id/pestFragment"
+        android:name="com.app.mytea.view.home.tea.PestFragment"
+        android:label="fragment_pest"
+        tools:layout="@layout/fragment_pest" >
+        <action
+            android:id="@+id/action_pestFragment_to_detailPestFragment"
+            app:destination="@id/detailPestFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/teaCriteriaFragment"
+        android:name="com.app.mytea.view.home.tea.TeaCriteriaFragment"
+        android:label="fragment_tea_criteria"
+        tools:layout="@layout/fragment_tea_criteria" />
+    <fragment
+        android:id="@+id/teaProcedureFragment"
+        android:name="com.app.mytea.view.home.tea.TeaProcedureFragment"
+        android:label="fragment_tea_procedure"
+        tools:layout="@layout/fragment_tea_procedure" />
+    <fragment
+        android:id="@+id/detailPestFragment"
+        android:name="com.app.mytea.view.home.tea.DetailPestFragment"
+        android:label="fragment_detail_pest"
+        tools:layout="@layout/fragment_detail_pest" />
+    <fragment
+        android:id="@+id/detailExpertFragment"
+        android:name="com.app.mytea.view.home.consultation.DetailExpertFragment"
+        android:label="fragment_detail_expert"
+        tools:layout="@layout/fragment_detail_expert" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.app.mytea.view.message.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/chatRoomFragment"
+        android:name="com.app.mytea.view.message.ChatRoomFragment"
+        android:label="fragment_chat_room"
+        tools:layout="@layout/fragment_chat_room" />
+</navigation>
