@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.home.tea.PestFragment">
+    tools:context=".view.home.tea.pestview.PestFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,43 +33,57 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:id="@+id/btnBack"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:src="@drawable/line"
                             />
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/layoutSearch"
-                            android:layout_marginTop="20dp"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+<!--                        <com.google.android.material.textfield.TextInputLayout-->
+<!--                            android:id="@+id/layoutSearch"-->
+<!--                            android:layout_marginTop="20dp"-->
+<!--                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                            android:layout_width="258dp"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_toLeftOf="@id/filter"-->
+<!--                            android:hint="Search"-->
+<!--                            android:layout_alignParentStart="true"-->
+<!--                            app:boxBackgroundColor="@color/white"-->
+<!--                            app:boxCornerRadiusBottomEnd="8dp"-->
+<!--                            app:boxCornerRadiusBottomStart="8dp"-->
+<!--                            app:boxCornerRadiusTopEnd="8dp"-->
+<!--                            app:boxCornerRadiusTopStart="8dp"-->
+<!--                            android:gravity="bottom"-->
+<!--                            app:boxStrokeColor="@color/black"-->
+<!--                            app:hintTextColor="@color/black"-->
+<!--                            app:startIconDrawable="@drawable/search"-->
+<!--                            app:startIconTint="@color/black">-->
+
+<!--                            <com.google.android.material.textfield.TextInputEditText-->
+<!--                                android:id="@+id/editTextSearch"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:inputType="text">-->
+
+<!--                            </com.google.android.material.textfield.TextInputEditText>-->
+
+<!--                        </com.google.android.material.textfield.TextInputLayout>-->
+
+
+                        <androidx.appcompat.widget.SearchView
+                            android:id="@+id/searchPest"
                             android:layout_width="258dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="20dp"
                             android:layout_gravity="center"
-                            android:layout_height="wrap_content"
-                            android:layout_toLeftOf="@id/filter"
-                            android:hint="Search"
-                            android:layout_alignParentStart="true"
-                            app:boxBackgroundColor="@color/white"
-                            app:boxCornerRadiusBottomEnd="8dp"
-                            app:boxCornerRadiusBottomStart="8dp"
-                            app:boxCornerRadiusTopEnd="8dp"
-                            app:boxCornerRadiusTopStart="8dp"
-                            android:gravity="bottom"
-                            app:boxStrokeColor="@color/black"
-                            app:hintTextColor="@color/black"
-                            app:startIconDrawable="@drawable/search"
-                            app:startIconTint="@color/black">
+                            app:queryHint="Cari Pest"
+                            android:background="@drawable/custom_input"
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/editTextSearch"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="text">
-
-                            </com.google.android.material.textfield.TextInputEditText>
-
-                        </com.google.android.material.textfield.TextInputLayout>
+                            />
 
                         <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginStart="10dp"
                             android:id="@+id/listItemRecyclerView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

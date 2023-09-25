@@ -1,9 +1,9 @@
-package com.app.mytea.view.home.tea.adapter
+package com.app.mytea.view.home.tea.harvestview.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.app.mytea.view.home.tea.TeaCriteriaFragment
-import com.app.mytea.view.home.tea.TeaProcedureFragment
+import com.app.mytea.view.home.tea.harvestview.TeaCriteriaFragment
+import com.app.mytea.view.home.tea.harvestview.TeaProcedureFragment
 
 class MyPagerAdapter(fragment : Fragment) : FragmentStateAdapter(fragment) {
 

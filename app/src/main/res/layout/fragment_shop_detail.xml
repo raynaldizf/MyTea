@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_margin="25dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.home.shop.ShopDetailFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    app:backgroundTint="#D2C8C5"
+                    android:layout_alignParentStart="true"
+                    android:backgroundTint="@color/white"
+                    android:layout_margin="3dp"
+                    android:src="@drawable/line_custom"/>
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/btnFav"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    app:backgroundTint="#D2C8C5"
+                    android:layout_margin="3dp"
+                    android:backgroundTint="@color/white"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_baseline_favorite_24"/>
+
+
+                <ImageView
+                    android:id="@+id/imageProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:src="@drawable/tea"
+                    android:scaleType="centerCrop"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/textNameProduct"
+                    android:layout_toLeftOf="@id/container2"
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pupuk Urea"
+                    android:fontFamily="@font/segoeuibold"
+                    android:textSize="24sp"
+                    android:textColor="#1B2028"
+                    android:layout_below="@id/imageProduct"
+                    android:layout_marginTop="15dp"
+
+
+                    />
+
+                <LinearLayout
+                    android:id="@+id/container2"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@id/imageProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+
+                    >
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_minus"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        app:cornerRadius="20dp"
+                        android:text="-"
+                        android:textSize="20sp"
+                        android:textColor="#1B2028"
+                        android:backgroundTint="@color/white"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textQuantity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="20sp"
+                        android:textColor="#1B2028"
+                        android:fontFamily="@font/segoeuibold"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+
+
+                        />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_plus"
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        app:cornerRadius="20dp"
+                        android:text="+"
+                        android:textSize="20sp"
+                        android:textColor="#1B2028"
+                        android:backgroundTint="@color/white"
+
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textDescription"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@id/textNameProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Its simple and elegant shape makes it perfect for
+those of you who like you who want minimalist
+clothes but still look elegant."
+                    android:fontFamily="@font/segoeui"
+                    android:textColor="#878787"
+
+
+
+                    />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:id="@+id/btnCheckout"
+                    android:layout_height="60dp"
+                    android:backgroundTint="#A2AA7B"
+                    android:text="Add to Cart"
+                    android:drawableEnd="@drawable/shopping_cart"
+                    android:layout_below="@id/textDescription"
+                    android:layout_marginTop="45dp"
+                    android:layout_alignParentBottom="true"
+                    app:cornerRadius="40dp"
+
+                    />
+            </RelativeLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

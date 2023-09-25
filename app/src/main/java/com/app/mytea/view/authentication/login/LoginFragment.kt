@@ -68,14 +68,14 @@ class LoginFragment : Fragment() {
                     Toast.makeText(context,"Login Berhasil!",Toast.LENGTH_SHORT).show()
                     if (remember){
                         saveSession(it.data.toString())
-                        //findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                         // Log Token & remember
                         Log.d("token", "onViewCreated: ${it.data}")
                         Log.d("remember", "onViewCreated: $remember")
                     }else{
                         Log.d("token", "onViewCreated: ${it.data}")
                         Log.d("remember", "onViewCreated: $remember")
-                        //findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
 
                     }
                 }else{

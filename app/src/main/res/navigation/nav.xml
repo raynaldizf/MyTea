@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -42,12 +42,26 @@
         android:id="@+id/homeFragment"
         android:name="com.app.mytea.view.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_teaFragment"
+            app:destination="@id/teaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_shopFragment"
+            app:destination="@id/shopFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.app.mytea.view.profile.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/savedFragment"
         android:name="com.app.mytea.view.saved.SavedFragment"
@@ -57,7 +71,11 @@
         android:id="@+id/shopFragment"
         android:name="com.app.mytea.view.home.shop.ShopFragment"
         android:label="fragment_shop"
-        tools:layout="@layout/fragment_shop" />
+        tools:layout="@layout/fragment_shop" >
+        <action
+            android:id="@+id/action_shopFragment_to_shopDetailFragment"
+            app:destination="@id/shopDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/basketFragment"
         android:name="com.app.mytea.view.basket.BasketFragment"
@@ -76,15 +94,25 @@
         android:id="@+id/teaFragment"
         android:name="com.app.mytea.view.home.tea.TeaFragment"
         android:label="fragment_tea"
-        tools:layout="@layout/fragment_tea" />
+        tools:layout="@layout/fragment_tea" >
+        <action
+            android:id="@+id/action_teaFragment_to_pestFragment"
+            app:destination="@id/pestFragment" />
+        <action
+            android:id="@+id/action_teaFragment_to_teaDetailFragment"
+            app:destination="@id/teaDetailFragment" />
+        <action
+            android:id="@+id/action_teaFragment_to_fertilizerFragment"
+            app:destination="@id/fertilizerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/teaDetailFragment"
-        android:name="com.app.mytea.view.home.tea.TeaDetailFragment"
+        android:name="com.app.mytea.view.home.tea.harvestview.TeaDetailFragment"
         android:label="fragment_tea_detail"
         tools:layout="@layout/fragment_tea_detail" />
     <fragment
         android:id="@+id/pestFragment"
-        android:name="com.app.mytea.view.home.tea.PestFragment"
+        android:name="com.app.mytea.view.home.tea.pestview.PestFragment"
         android:label="fragment_pest"
         tools:layout="@layout/fragment_pest" >
         <action
@@ -93,24 +121,28 @@
     </fragment>
     <fragment
         android:id="@+id/teaCriteriaFragment"
-        android:name="com.app.mytea.view.home.tea.TeaCriteriaFragment"
+        android:name="com.app.mytea.view.home.tea.harvestview.TeaCriteriaFragment"
         android:label="fragment_tea_criteria"
         tools:layout="@layout/fragment_tea_criteria" />
     <fragment
         android:id="@+id/teaProcedureFragment"
-        android:name="com.app.mytea.view.home.tea.TeaProcedureFragment"
+        android:name="com.app.mytea.view.home.tea.harvestview.TeaProcedureFragment"
         android:label="fragment_tea_procedure"
         tools:layout="@layout/fragment_tea_procedure" />
     <fragment
         android:id="@+id/detailPestFragment"
-        android:name="com.app.mytea.view.home.tea.DetailPestFragment"
+        android:name="com.app.mytea.view.home.tea.pestview.DetailPestFragment"
         android:label="fragment_detail_pest"
         tools:layout="@layout/fragment_detail_pest" />
     <fragment
         android:id="@+id/detailExpertFragment"
         android:name="com.app.mytea.view.home.consultation.DetailExpertFragment"
         android:label="fragment_detail_expert"
-        tools:layout="@layout/fragment_detail_expert" />
+        tools:layout="@layout/fragment_detail_expert" >
+        <action
+            android:id="@+id/action_detailExpertFragment_to_chatRoomFragment"
+            app:destination="@id/chatRoomFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.app.mytea.view.message.ChatFragment"
@@ -121,4 +153,52 @@
         android:name="com.app.mytea.view.message.ChatRoomFragment"
         android:label="fragment_chat_room"
         tools:layout="@layout/fragment_chat_room" />
+    <fragment
+        android:id="@+id/shopDetailFragment"
+        android:name="com.app.mytea.view.home.shop.ShopDetailFragment"
+        android:label="fragment_shop_detail"
+        tools:layout="@layout/fragment_shop_detail" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.app.mytea.view.profile.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/controlPestVpFragment2"
+        android:name="com.app.mytea.view.home.tea.pestview.ControlPestVpFragment"
+        android:label="fragment_control_pest_vp"
+        tools:layout="@layout/fragment_control_pest_vp" />
+    <fragment
+        android:id="@+id/detailPestVpFragment"
+        android:name="com.app.mytea.view.home.tea.pestview.DetailPestVpFragment"
+        android:label="fragment_detail_pest_vp"
+        tools:layout="@layout/fragment_detail_pest_vp" />
+    <fragment
+        android:id="@+id/controlFertilizerVpFragment"
+        android:name="com.app.mytea.view.home.tea.fertilizerview.ControlFertilizerVpFragment"
+        android:label="fragment_control_fertilizer_vp"
+        tools:layout="@layout/fragment_control_fertilizer_vp" />
+    <fragment
+        android:id="@+id/detailFertilizerFragment"
+        android:name="com.app.mytea.view.home.tea.fertilizerview.DetailFertilizerFragment"
+        android:label="fragment_detail_fertilizer"
+        tools:layout="@layout/fragment_detail_fertilizer" />
+    <fragment
+        android:id="@+id/detailFertilizerVpFragment"
+        android:name="com.app.mytea.view.home.tea.fertilizerview.DetailFertilizerVpFragment"
+        android:label="fragment_detail_fertilizer_vp"
+        tools:layout="@layout/fragment_detail_fertilizer_vp" />
+    <fragment
+        android:id="@+id/fertilizerFragment"
+        android:name="com.app.mytea.view.home.tea.fertilizerview.FertilizerFragment"
+        android:label="fragment_fertilizer"
+        tools:layout="@layout/fragment_fertilizer" >
+        <action
+            android:id="@+id/action_fertilizerFragment_to_detailFertilizerFragment"
+            app:destination="@id/detailFertilizerFragment" />
+    </fragment>
 </navigation>

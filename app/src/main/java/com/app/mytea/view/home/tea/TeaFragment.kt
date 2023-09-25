@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.app.mytea.R
 import com.app.mytea.databinding.FragmentTeaBinding
 
@@ -23,19 +24,25 @@ class TeaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.cardTea.setOnClickListener{
-
+            // TODO : Navigate to ???
         }
 
         binding.cardFertilizer.setOnClickListener{
-
+            findNavController().navigate(R.id.action_teaFragment_to_fertilizerFragment)
         }
 
         binding.cardHarvest.setOnClickListener{
-
+            findNavController().navigate(R.id.action_teaFragment_to_teaDetailFragment)
         }
 
         binding.cardPest.setOnClickListener{
-
+            findNavController().navigate(R.id.action_teaFragment_to_pestFragment)
         }
+
+        binding.btnBack.setOnClickListener{
+            findNavController().navigateUp()
+        }
+
+
     }
 }

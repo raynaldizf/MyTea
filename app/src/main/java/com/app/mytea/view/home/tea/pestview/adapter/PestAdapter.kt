@@ -1,14 +1,11 @@
-package com.app.mytea.view.home.tea.adapter
+package com.app.mytea.view.home.tea.pestview.adapter
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.app.mytea.data.model.response.DataXX
-import com.app.mytea.databinding.ItemCategoryBinding
 import com.app.mytea.databinding.ItemListBinding
 
 class PestAdapter(private val itemList: List<DataXX>) : RecyclerView.Adapter<PestAdapter.ViewHolder>() {
@@ -21,12 +18,22 @@ class PestAdapter(private val itemList: List<DataXX>) : RecyclerView.Adapter<Pes
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
+//        Glide.with(holder.itemView.context)
+//            .load(itemList[position].image)
+//            .into(holder.binding.ivProductImage)
         holder.binding.tvProductName.text = itemList[position].name
-        holder.binding.tvProductDescription.text = itemList[position].description
+        val maxWords = 2
+        val description = itemList[position].description
+        val words = description!!.split(" ")
+        val truncatedDescription = if (words.size > maxWords) {
+            words.take(maxWords).joinToString(" ") + " ..."
+        } else {
+            description
+        }
+        holder.binding.tvProductDescription.text = truncatedDescription
         holder.binding.cardViewPest.setOnClickListener{
             val bundle = Bundle()
-            bundle.putString("name", itemList[position].name)
-            bundle.putString("description", itemList[position].description)
+            bundle.putString("id", itemList[position].id.toString())
             Navigation.findNavController(it).navigate(com.app.mytea.R.id.action_pestFragment_to_detailPestFragment, bundle)
         }
     }
