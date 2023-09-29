@@ -5,7 +5,10 @@ import com.app.mytea.data.model.request.Profile
 import com.app.mytea.data.model.request.RegisterRequest
 import com.app.mytea.data.model.response.ResponseAddCart
 import com.app.mytea.data.model.response.ResponseDeleteSaved
+import com.app.mytea.data.model.response.ResponseGetBasket
+import com.app.mytea.data.model.response.ResponseGetCategory
 import com.app.mytea.data.model.response.ResponseGetDataUser
+import com.app.mytea.data.model.response.ResponseGetDetailCategory
 import com.app.mytea.data.model.response.ResponseGetDetailDataUser
 import com.app.mytea.data.model.response.ResponseGetDetailExpert
 import com.app.mytea.data.model.response.ResponseGetDetailPest
@@ -99,6 +102,15 @@ interface ApiService {
 
     @GET("experts/{id}")
     fun detailExpert(@Header("Authorization") token: String, @Path("id") id: String): Call<ResponseGetDetailExpert>
+
+    @GET("categories")
+    fun categories(@Header("Authorization") token: String): Call<ResponseGetCategory>
+
+    @GET("categories/{id}")
+    fun categoriesDetail(@Header("Authorization") token: String, @Path("id") id: String): Call<ResponseGetDetailCategory>
+
+    @GET("carts")
+    fun cart(@Header("Authorization") token: String): Call<ResponseGetBasket>
 
 
 }

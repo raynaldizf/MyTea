@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import com.app.mytea.R
 import com.app.mytea.data.datastore.SharedPref
 import com.app.mytea.databinding.FragmentDetailExpertBinding
@@ -56,6 +57,10 @@ class DetailExpertFragment : Fragment() {
             }
             viewModel.getDetailExpert(tokens,id!!)
 
+        }
+
+        binding.btnBack.setOnClickListener{
+            findNavController().navigateUp()
         }
     }
 

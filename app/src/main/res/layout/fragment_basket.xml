@@ -27,6 +27,7 @@
                     android:layout_height="wrap_content">
 
                     <LinearLayout
+                        android:id="@+id/container"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
@@ -56,6 +57,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
+                            tools:listitem="@layout/shop_item_list"
 
                             />
 
@@ -181,24 +183,28 @@
                         </LinearLayout>
                     </LinearLayout>
 
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_below="@id/container"
+                        android:id="@+id/btnPay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hubungi Penjual"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/white"
+                        android:layout_alignParentBottom="true"
+                        android:backgroundTint="#A2AA7B"
+                        android:drawableEnd="@drawable/whatsapp_svgrepo_com"
+                        android:layout_marginTop="20dp"
+                        app:cornerRadius="8dp"
+                        android:padding="16dp"
+                        android:fontFamily="@font/segoeuibold"
+                        />
+
                 </RelativeLayout>
+
             </ScrollView>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hubungi Penjual"
-                android:textSize="18sp"
-                android:textColor="@android:color/white"
-                android:layout_alignParentBottom="true"
-                android:backgroundTint="#A2AA7B"
-                android:drawableEnd="@drawable/whatsapp_svgrepo_com"
-                android:layout_marginTop="20dp"
-                app:cornerRadius="8dp"
-                android:padding="16dp"
-                android:fontFamily="@font/segoeuibold"
-                />
+
 
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

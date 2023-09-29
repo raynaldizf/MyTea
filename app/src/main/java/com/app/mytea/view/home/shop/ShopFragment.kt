@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.mytea.R
 import com.app.mytea.data.datastore.SharedPref
 import com.app.mytea.data.model.response.DataX
+import com.app.mytea.data.model.response.DataXXXXXXXXXXX
 import com.app.mytea.data.network.ApiClient
 import com.app.mytea.databinding.FragmentShopBinding
 import com.app.mytea.view.home.shop.adapter.CategoryAdapter
@@ -47,6 +48,7 @@ class ShopFragment : Fragment(), CategoryAdapter.OnItemClickListener {
         sharedPref = SharedPref(requireContext())
         viewModelShop = ViewModelProvider(requireActivity()).get(ViewModelShop::class.java)
 
+//        categoryAdapter = CategoryAdapter(ArrayList(), this)
         val categories = listOf("Organik", "Non Organik", "Pembunuh Hama", "Penyubur Tanaman")
         categoryAdapter = CategoryAdapter(categories, this)
 
@@ -61,6 +63,16 @@ class ShopFragment : Fragment(), CategoryAdapter.OnItemClickListener {
                 binding.listItemRecyclerView.visibility = View.GONE
             }
         }
+
+//        viewModelShop.allLiveDataCategories().observe(viewLifecycleOwner){
+//            if(it != null){
+//                binding.categoryRecyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+//                categoryAdapter = CategoryAdapter(it,this)
+//                binding.categoryRecyclerView.adapter = categoryAdapter
+//            }else{
+//                binding.categoryRecyclerView.visibility = View.GONE
+//            }
+//        }
 
 
         sharedPref.getToken.asLiveData().observe(viewLifecycleOwner) { token ->
@@ -93,8 +105,7 @@ class ShopFragment : Fragment(), CategoryAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(categoryName: String) {
-        val selectedCategoryIndex = categoryAdapter.categories.indexOf(categoryName)
-        categoryAdapter.setSelectedPosition(selectedCategoryIndex)
+        Toast.makeText(requireContext(), categoryName, Toast.LENGTH_SHORT).show()
     }
 
     private fun setupCategoryRecyclerView() {

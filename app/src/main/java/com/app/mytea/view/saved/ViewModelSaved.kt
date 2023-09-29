@@ -3,11 +3,8 @@ package com.app.mytea.view.saved
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.app.mytea.data.model.response.DataX
-import com.app.mytea.data.model.response.DataXX
 import com.app.mytea.data.model.response.DataXXXXXXX
 import com.app.mytea.data.model.response.ResponseDeleteSaved
-import com.app.mytea.data.model.response.ResponseGetProduct
 import com.app.mytea.data.model.response.ResponseGetSavedData
 import com.app.mytea.data.network.ApiClient
 import retrofit2.Call

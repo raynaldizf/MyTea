@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ResponseGetBasket(
     @SerializedName("data")
-    var `data`: DataXXXXXXXXXXXXXXXX?,
+    var data: DataXXXXXXXXXXXXXXXX?,
     @SerializedName("message")
     var message: Any?,
     @SerializedName("success")

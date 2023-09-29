@@ -94,7 +94,7 @@ class EditProfileFragment : Fragment() {
                     userDataList?.let {
                         if (it != null) {
                             Toast.makeText(requireContext(), "Berhasil Update Data", Toast.LENGTH_SHORT).show()
-                            findNavController().navigateUp()
+                            findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
                         }else{
                             Toast.makeText(requireContext(), "Gagal Update Data", Toast.LENGTH_SHORT).show()
                         }

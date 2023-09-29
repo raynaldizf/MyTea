@@ -4,11 +4,13 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.app.mytea.data.model.response.DataXXXXXXXXXXX
+import com.app.mytea.data.model.response.DataXXXXXXXXXXXX
 import com.app.mytea.databinding.ItemCategoryBinding
 
 class CategoryAdapter(
-     val categories: List<String>,
-     val onItemClickListener: OnItemClickListener
+    val categories: List<String>,
+    val onItemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     interface OnItemClickListener {
