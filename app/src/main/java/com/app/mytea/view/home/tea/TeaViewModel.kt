@@ -23,6 +23,8 @@ class TeaViewModel : ViewModel() {
     // Fertilizer
     private val fertilizer = MutableLiveData<List<DataXXXXXXXXX>?>()
     private val detailFertilizer = MutableLiveData<DataXXXXXXXXXX?>()
+    // Tea
+
 
 
     // Pest

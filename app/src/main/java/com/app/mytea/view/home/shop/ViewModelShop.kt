@@ -4,10 +4,10 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.app.mytea.data.model.response.DataX
-import com.app.mytea.data.model.response.DataXX
 import com.app.mytea.data.model.response.DataXXXX
 import com.app.mytea.data.model.response.DataXXXXXXXXXXX
 import com.app.mytea.data.model.response.DataXXXXXXXXXXXX
+import com.app.mytea.data.model.response.ProductXX
 import com.app.mytea.data.model.response.ResponseAddCart
 import com.app.mytea.data.model.response.ResponseGetCategory
 import com.app.mytea.data.model.response.ResponseGetDetailCategory
@@ -19,7 +19,6 @@ import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.Locale.Category
 
 class ViewModelShop: ViewModel() {
     private val product = MutableLiveData<List<DataX>?>()
@@ -27,7 +26,9 @@ class ViewModelShop: ViewModel() {
     private val addCart = MutableLiveData<ResponseAddCart?>()
     private val addSaved = MutableLiveData<ResponseSaved?>()
     private val categories = MutableLiveData<List<DataXXXXXXXXXXX>?>()
-    private val categoriesDetail = MutableLiveData<DataXXXXXXXXXXXX?>()
+    private val categoriesDetail = MutableLiveData<List<ProductXX>?>()
+
+
 
     fun allLiveDataProduct() : MutableLiveData<List<DataX>?> {
         return product
@@ -49,10 +50,9 @@ class ViewModelShop: ViewModel() {
         return categories
     }
 
-    fun allLiveDataCategoriesDetail() : MutableLiveData<DataXXXXXXXXXXXX?> {
+    fun allLiveDataCategoriesDetail(): MutableLiveData<List<ProductXX>?> {
         return categoriesDetail
     }
-
     fun getProduct(token : String ){
         ApiClient.instance.product("Bearer $token").enqueue(object : Callback<ResponseGetProduct>{
             override fun onResponse(
@@ -167,26 +167,29 @@ class ViewModelShop: ViewModel() {
 
     }
 
-    fun getDetailCategory(token : String, id : String){
-        ApiClient.instance.categoriesDetail("Bearer $token", id).enqueue(object : Callback<ResponseGetDetailCategory>{
-            override fun onResponse(
-                call: Call<ResponseGetDetailCategory>,
-                response: Response<ResponseGetDetailCategory>
-            ) {
-                Log.d("TAG", "onResponse: ${response.body()?.data}")
+    fun getDetailCategory(token: String, categoryId: String) {
+        ApiClient.instance.categoriesDetail("Bearer $token", categoryId)
+            .enqueue(object : Callback<ResponseGetDetailCategory> {
+                override fun onResponse(
+                    call: Call<ResponseGetDetailCategory>,
+                    response: Response<ResponseGetDetailCategory>
+                ) {
+                    Log.d("TAG", "onResponse: ${response.body()?.data}")
+                    if (response.isSuccessful) {
+                        categoriesDetail.postValue(response.body()?.data?.products)
+                    } else {
+                        categoriesDetail.postValue(null)
+                    }
+                }
 
-                if (response.isSuccessful){
-                    categoriesDetail.postValue(response.body()?.data)
-                }else{
+                override fun onFailure(call: Call<ResponseGetDetailCategory>, t: Throwable) {
+                    Log.e("TAG", "onFailure: ${t.message}", t)
                     categoriesDetail.postValue(null)
                 }
-            }
-
-            override fun onFailure(call: Call<ResponseGetDetailCategory>, t: Throwable) {
-                categoriesDetail.postValue(null)
-            }
-    })
+            })
     }
+
+
 
     fun searchProduct(query: String): List<DataX>? {
         val allProduct = product.value

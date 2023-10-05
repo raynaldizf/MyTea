@@ -76,6 +76,10 @@ interface ApiService {
     @GET("pests")
     fun pest(@Header("Authorization") token: String): Call<ResponseGetPest>
 
+//    @GET("tea")
+//    fun pest(@Header("Authorization") token: String): Call<ResponseGetTea>
+
+
     @GET("pests/{id}")
     fun detailPest(@Header("Authorization") token: String, @Path("id") id: String): Call<ResponseGetDetailPest>
 

@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,17 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.mytea.R
 import com.app.mytea.data.datastore.SharedPref
-import com.app.mytea.data.model.response.DataX
-import com.app.mytea.data.model.response.DataXXXXXXXXXXX
-import com.app.mytea.data.network.ApiClient
 import com.app.mytea.databinding.FragmentShopBinding
 import com.app.mytea.view.home.shop.adapter.CategoryAdapter
 import com.app.mytea.view.home.shop.adapter.HeadAdapter
 import com.app.mytea.view.home.shop.adapter.ListShopItemAdapter
-import com.app.mytea.view.home.tea.pestview.adapter.PestAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.app.mytea.view.home.shop.adapter.ProductByCategory
 
 class ShopFragment : Fragment(), CategoryAdapter.OnItemClickListener {
     private lateinit var binding: FragmentShopBinding
@@ -47,12 +40,8 @@ class ShopFragment : Fragment(), CategoryAdapter.OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         sharedPref = SharedPref(requireContext())
         viewModelShop = ViewModelProvider(requireActivity()).get(ViewModelShop::class.java)
+        categoryAdapter = CategoryAdapter(listOf(), this)
 
-//        categoryAdapter = CategoryAdapter(ArrayList(), this)
-        val categories = listOf("Organik", "Non Organik", "Pembunuh Hama", "Penyubur Tanaman")
-        categoryAdapter = CategoryAdapter(categories, this)
-
-        setupCategoryRecyclerView()
 
         viewModelShop.allLiveDataProduct().observe(viewLifecycleOwner){
             if(it != null){
@@ -64,16 +53,20 @@ class ShopFragment : Fragment(), CategoryAdapter.OnItemClickListener {
             }
         }
 
-//        viewModelShop.allLiveDataCategories().observe(viewLifecycleOwner){
-//            if(it != null){
-//                binding.categoryRecyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-//                categoryAdapter = CategoryAdapter(it,this)
-//                binding.categoryRecyclerView.adapter = categoryAdapter
-//            }else{
-//                binding.categoryRecyclerView.visibility = View.GONE
-//            }
-//        }
+        viewModelShop.allLiveDataCategories().observe(viewLifecycleOwner){
+            if(it != null){
 
+
+                binding.categoryRecyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+                val adapter = CategoryAdapter(it,this)
+                binding.categoryRecyclerView.adapter = adapter
+                binding.categoryRecyclerView.apply {
+                    addItemDecoration(CategoryItemDecoration())
+                }
+            }else{
+                binding.categoryRecyclerView.visibility = View.GONE
+            }
+        }
 
         sharedPref.getToken.asLiveData().observe(viewLifecycleOwner) { token ->
             when (token) {
@@ -85,6 +78,7 @@ class ShopFragment : Fragment(), CategoryAdapter.OnItemClickListener {
                 }
             }
             viewModelShop.getProduct(tokens)
+            viewModelShop.getCategory(tokens)
 
         }
 
@@ -104,15 +98,26 @@ class ShopFragment : Fragment(), CategoryAdapter.OnItemClickListener {
 
     }
 
-    override fun onItemClick(categoryName: String) {
-        Toast.makeText(requireContext(), categoryName, Toast.LENGTH_SHORT).show()
-    }
+    override fun onItemClick(categoryId: String) {
+        viewModelShop.allLiveDataCategoriesDetail().observe(viewLifecycleOwner) { categoryDetails ->
+            if (categoryDetails != null) {
+                binding.listItemRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                val adapter = ProductByCategory(categoryDetails)
+                binding.listItemRecyclerView.adapter = adapter
+            } else {
+                binding.listItemRecyclerView.visibility = View.GONE
+            }
+        }
 
-    private fun setupCategoryRecyclerView() {
-        binding.categoryRecyclerView.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            adapter = categoryAdapter
-            addItemDecoration(CategoryItemDecoration())
+        sharedPref.getToken.asLiveData().observe(viewLifecycleOwner) { token ->
+            when (token) {
+                "Undefined" -> Log.d("Token Gagal", "Undefined token $token")
+                else -> {
+                    Log.d("Token Berhasil", "Get token $token")
+                    tokens = token
+                }
+            }
+            viewModelShop.getDetailCategory(tokens, categoryId)
         }
     }
 

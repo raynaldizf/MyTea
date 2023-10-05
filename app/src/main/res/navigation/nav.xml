@@ -104,6 +104,9 @@
         <action
             android:id="@+id/action_teaFragment_to_fertilizerFragment"
             app:destination="@id/fertilizerFragment" />
+        <action
+            android:id="@+id/action_teaFragment_to_teaViewFragment"
+            app:destination="@id/teaViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/teaDetailFragment"
@@ -200,5 +203,29 @@
         <action
             android:id="@+id/action_fertilizerFragment_to_detailFertilizerFragment"
             app:destination="@id/detailFertilizerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/controllTeaVpFragment"
+        android:name="com.app.mytea.view.home.tea.teaview.ControllTeaVpFragment"
+        android:label="fragment_controll_tea_vp"
+        tools:layout="@layout/fragment_controll_tea_vp" />
+    <fragment
+        android:id="@+id/detailTeaFragment"
+        android:name="com.app.mytea.view.home.tea.teaview.DetailTeaFragment"
+        android:label="fragment_detail_tea"
+        tools:layout="@layout/fragment_detail_tea" />
+    <fragment
+        android:id="@+id/detailTeaVpFragment"
+        android:name="com.app.mytea.view.home.tea.teaview.DetailTeaVpFragment"
+        android:label="fragment_detail_tea_vp"
+        tools:layout="@layout/fragment_detail_tea_vp" />
+    <fragment
+        android:id="@+id/teaViewFragment"
+        android:name="com.app.mytea.view.home.tea.teaview.TeaViewFragment"
+        android:label="fragment_tea_view"
+        tools:layout="@layout/fragment_tea_view" >
+        <action
+            android:id="@+id/action_teaViewFragment_to_detailTeaFragment"
+            app:destination="@id/detailTeaFragment" />
     </fragment>
 </navigation>

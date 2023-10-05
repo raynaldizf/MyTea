@@ -24,7 +24,7 @@ class TeaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.cardTea.setOnClickListener{
-            // TODO : Navigate to ???
+            findNavController().navigate(R.id.action_teaFragment_to_teaViewFragment)
         }
 
         binding.cardFertilizer.setOnClickListener{
